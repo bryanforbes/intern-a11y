@@ -1,5 +1,5 @@
 {
-	"name": "intern-a11y",
+	"name": "@theintern/a11y",
 	"version": "0.2.0-pre",
 	"main": "index.js",
 	"types": "index.d.ts",
@@ -20,13 +20,7 @@
 		"intern": "~4.1.0"
 	},
 	"bugs": "https://github.com/theintern/intern-a11y/issues",
-	"keywords": [
-		"javascript",
-		"test",
-		"functional",
-		"tenon",
-		"aXe"
-	],
+	"keywords": ["javascript", "test", "functional", "tenon", "aXe"],
 	"homepage": "http://github.com/theintern/intern-a11y",
 	"scripts": {
 		"build": "intern-dev-clean && intern-dev-build && intern-dev-api",
@@ -38,14 +32,9 @@
 	},
 	"internDev": {
 		"resources": {
-			"_build": [
-				"tests/**/*.{html,json}"
-			]
+			"_build": ["tests/**/*.{html,json}"]
 		},
-		"configs": [
-			"tsconfig.json",
-			"tests/tsconfig.json"
-		],
+		"configs": ["tsconfig.json", "tests/tsconfig.json"],
 		"publishDir": "_build/src"
 	},
 	"prettier": {
