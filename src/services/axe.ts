@@ -1,35 +1,35 @@
 import { readFileSync } from 'fs';
 import { A11yResults, A11yError } from '../common';
 import { AxeResults, toA11yResults } from './_axe';
-import Command = require('leadfoot/Command');
+import Command from '@theintern/leadfoot/Command';
 
 export interface AxeTestOptions {
 	config?: {
 		branding?: {
-			brand?: string,
-			application?: string
-		},
-		reporter?: 'v1' | 'v2',
+			brand?: string;
+			application?: string;
+		};
+		reporter?: 'v1' | 'v2';
 		checks?: {
-			id: string,
-			evaluate: Function,
-			after?: Function,
-			options?: Object,
-			matches?: string,
-			enabled?: boolean
-		}[],
+			id: string;
+			evaluate: Function;
+			after?: Function;
+			options?: Object;
+			matches?: string;
+			enabled?: boolean;
+		}[];
 		rules?: {
-			id: string,
-			selector?: string,
-			excludeHidden?: boolean,
-			enabled?: boolean,
-			pageLevel?: boolean,
-			any?: string[],
-			all?: string[],
-			none?: string[],
-			tags?: string[],
-			matches?: string
-		}[]
+			id: string;
+			selector?: string;
+			excludeHidden?: boolean;
+			enabled?: boolean;
+			pageLevel?: boolean;
+			any?: string[];
+			all?: string[];
+			none?: string[];
+			tags?: string[];
+			matches?: string;
+		}[];
 	};
 
 	/**
@@ -50,15 +50,17 @@ export interface AxeRunTestOptions extends AxeTestOptions {
 	waitFor?: number;
 }
 
-export function createChecker(options?: AxeTestOptions) {
-	return function (this: Command<any>) {
+export function createChecker(
+	options?: AxeTestOptions
+): () => Command<A11yResults> {
+	return function(this: Command<any>) {
 		options = options || {};
 		const axePath = require.resolve('axe-core/axe.min');
 		const axeScript = readFileSync(axePath, { encoding: 'utf8' });
 		const axeContext = options.context;
 
 		const config = options.config;
-		let axeConfig: AxeConfig = null;
+		let axeConfig: AxeConfig | null = null;
 
 		if (config) {
 			axeConfig = {
@@ -67,7 +69,7 @@ export function createChecker(options?: AxeTestOptions) {
 				rules: config.rules
 			};
 			if (config.checks) {
-				axeConfig.checks = config.checks.map(function (check) {
+				axeConfig.checks = config.checks.map(function(check) {
 					return {
 						id: check.id,
 						evaluate: check.evaluate.toString(),
@@ -82,11 +84,12 @@ export function createChecker(options?: AxeTestOptions) {
 
 		return this.parent
 			.getExecuteAsyncTimeout()
-			.then(function (this: Command<any>, timeout: number) {
+			.then(function(this: Command<any>, timeout: number) {
 				return this.parent
 					.setExecuteAsyncTimeout(30000)
 					.execute(axeScript, [])
-					.executeAsync(`return (function (config, context, done) {
+					.executeAsync(
+						`return (function (config, context, done) {
 						if (config) {
 							if (config.checks) {
 								config.checks.forEach(function (check) {
@@ -104,17 +107,27 @@ export function createChecker(options?: AxeTestOptions) {
 						axe.a11yCheck(context, function(results) {
 							done(results);
 						});
-					}).apply(this, arguments)`, [ axeConfig, axeContext ])
-					.then(function (results: AxeResults) {
+					}).apply(this, arguments)`,
+						[axeConfig, axeContext]
+					)
+					.then(function(results: AxeResults) {
 						const a11yResults = toA11yResults(results);
 
-						const numViolations = (results.violations && results.violations.length) || 0;
-						let error: A11yError;
+						const numViolations =
+							(results.violations && results.violations.length) ||
+							0;
+						let error: A11yError | undefined;
 						if (numViolations === 1) {
-							error = new A11yError('1 a11y violation was logged', a11yResults);
+							error = new A11yError(
+								'1 a11y violation was logged',
+								a11yResults
+							);
 						}
 						if (numViolations > 1) {
-							error = new A11yError(numViolations + ' a11y violations were logged', a11yResults);
+							error = new A11yError(
+								numViolations + ' a11y violations were logged',
+								a11yResults
+							);
 						}
 
 						if (error) {
@@ -124,17 +137,17 @@ export function createChecker(options?: AxeTestOptions) {
 						return a11yResults;
 					})
 					.then(
-						function (this: Command<void>, results: A11yResults) {
+						function(results: A11yResults) {
 							return this.parent
 								.setExecuteAsyncTimeout(timeout)
-								.then(function () {
+								.then(function() {
 									return results;
 								});
 						},
-						function (this: Command<void>, error: Error) {
+						function(error: Error) {
 							return this.parent
 								.setExecuteAsyncTimeout(timeout)
-								.then(function () {
+								.then(function() {
 									throw error;
 								});
 						}
@@ -144,8 +157,17 @@ export function createChecker(options?: AxeTestOptions) {
 }
 
 export function check(options?: AxeRunTestOptions) {
+	options = options || <AxeRunTestOptions>{};
+
 	if (options.remote == null) {
-		return Promise.reject(new Error('A remote is required when calling check()'));
+		return Promise.reject(
+			new Error('A remote is required when calling check()')
+		);
+	}
+	if (options.source == null) {
+		return Promise.reject(
+			new Error('A source address is required when calling check()')
+		);
 	}
 
 	let chain = options.remote.get(options.source);
@@ -159,28 +181,28 @@ export function check(options?: AxeRunTestOptions) {
 
 interface AxeConfig {
 	branding?: {
-		brand?: string,
-		application?: string
+		brand?: string;
+		application?: string;
 	};
 	reporter?: 'v1' | 'v2';
 	checks?: {
-		id: string,
-		evaluate: string,
-		after?: string,
-		options?: Object,
-		matches?: string,
-		enabled?: boolean
+		id: string;
+		evaluate: string;
+		after?: string;
+		options?: Object;
+		matches?: string;
+		enabled?: boolean;
 	}[];
 	rules?: {
-		id: string,
-		selector?: string,
-		excludeHidden?: boolean,
-		enabled?: boolean,
-		pageLevel?: boolean,
-		any?: string[],
-		all?: string[],
-		none?: string[],
-		tags?: string[],
-		matches?: string
+		id: string;
+		selector?: string;
+		excludeHidden?: boolean;
+		enabled?: boolean;
+		pageLevel?: boolean;
+		any?: string[];
+		all?: string[];
+		none?: string[];
+		tags?: string[];
+		matches?: string;
 	}[];
 }
