@@ -235,3 +235,9 @@ Intern-a11y is offered under the [New BSD license](LICENSE).
 
 © [SitePen, Inc.](http://sitepen.com) and its [contributors](https://github.com/theintern/intern-a11y/graphs/contributors)
 <!-- end-github-only -->
+
+<!-- doc-viewer-config
+{
+    "api": "docs/api.json"
+}
+-->
