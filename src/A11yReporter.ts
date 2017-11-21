@@ -57,6 +57,11 @@ export default class A11yReporter {
 	}
 
 	testEnd(test: Test) {
+		// We only care about failing tests
+		if (!test.error) {
+			return;
+		}
+
 		const error = test.error;
 		let results: A11yResults = (<any>error).a11yResults;
 
@@ -73,6 +78,7 @@ export default class A11yReporter {
 					sanitizeFilename(test.id + '.html')
 				);
 				writeFileSync(filename, renderReport(content));
+				console.log(`A11y report written to ${filename}\n`);
 			}
 		}
 	}
@@ -84,6 +90,7 @@ export default class A11yReporter {
 					this.filename,
 					renderReport(this._report.join(''))
 				);
+				console.log(`A11y report written to ${this.filename}\n`);
 			}
 		}
 	}

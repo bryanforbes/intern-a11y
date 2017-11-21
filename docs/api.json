@@ -211,7 +211,7 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 80,
+									"line": 86,
 									"character": 9
 								}
 							]
@@ -406,7 +406,7 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 93,
+									"line": 100,
 									"character": 9
 								}
 							],
@@ -437,7 +437,7 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 92,
+							"line": 99,
 							"character": 36
 						}
 					]
@@ -483,7 +483,7 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 102,
+							"line": 109,
 							"character": 15
 						}
 					]
@@ -529,7 +529,7 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 106,
+							"line": 113,
 							"character": 21
 						}
 					]
@@ -589,7 +589,7 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 172,
+							"line": 179,
 							"character": 22
 						}
 					]
@@ -636,7 +636,7 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 197,
+							"line": 204,
 							"character": 24
 						}
 					]
@@ -682,7 +682,7 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 228,
+							"line": 235,
 							"character": 25
 						}
 					]
