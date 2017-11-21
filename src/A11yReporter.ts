@@ -11,8 +11,10 @@ import { A11yResults, A11yViolation } from './common';
 export default class A11yReporter {
 	executor: Executor;
 	filename: string;
+	console: Console;
 
 	protected _report: string[] | undefined;
+	protected _reportFiles: string[];
 
 	/**
 	 * WriteReport writes a set of A11yResults to a file
@@ -35,12 +37,16 @@ export default class A11yReporter {
 
 		options = options || {};
 		this.filename = options.filename || 'a11y-report';
+		this.console = options.console || console;
 
 		if (/\.html$/.test(this.filename)) {
 			// Filename is a single HTML file that will contain multiple
 			// individual reports
 			this._report = [];
+			this._reportFiles = [this.filename];
 		} else {
+			this._reportFiles = [];
+
 			// Filename is a directory that will store multiple reports, one
 			// per file.
 			try {
@@ -78,7 +84,7 @@ export default class A11yReporter {
 					sanitizeFilename(test.id + '.html')
 				);
 				writeFileSync(filename, renderReport(content));
-				console.log(`A11y report written to ${filename}\n`);
+				this._reportFiles.push(filename);
 			}
 		}
 	}
@@ -90,13 +96,22 @@ export default class A11yReporter {
 					this.filename,
 					renderReport(this._report.join(''))
 				);
-				console.log(`A11y report written to ${this.filename}\n`);
+				this._reportFiles.push(this.filename);
+			}
+
+			if (this._reportFiles.length > 0) {
+				this.console.log('\n');
+				for (const file of this._reportFiles) {
+					this.console.log(`A11y report written to ${file}`);
+				}
+				this.console.log('\n');
 			}
 		}
 	}
 }
 
 export interface A11yReporterOptions {
+	console?: Console;
 	filename?: string;
 }
 

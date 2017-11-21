@@ -27,7 +27,21 @@ const mockExecutor: any = {
 	on() {}
 };
 
+const mockConsole: any = {
+	messages: [],
+	log(message: string) {
+		this.messages.push(message);
+	},
+	reset() {
+		this.messages = [];
+	}
+};
+
 registerSuite('unit/A11yReporter', {
+	beforeEach() {
+		mockConsole.reset();
+	},
+
 	afterEach() {
 		if (reportFile) {
 			remove(reportFile);
@@ -54,6 +68,7 @@ registerSuite('unit/A11yReporter', {
 			'to file'() {
 				reportFile = '_tempreport.html';
 				const reporter = new A11yReporter(mockExecutor, {
+					console: mockConsole,
 					filename: reportFile
 				});
 
@@ -79,12 +94,20 @@ registerSuite('unit/A11yReporter', {
 					fileExists(reportFile),
 					'exected report file to exist'
 				);
+
+				assert.deepEqual(mockConsole.messages, [
+					'\n',
+					'A11y report written to _tempreport.html',
+					'A11y report written to _tempreport.html',
+					'\n'
+				]);
 			},
 
 			// Expect report for each test to be output to an individual file, all in the same directory
 			'to directory'() {
 				reportFile = '_tempreports';
 				const reporter = new A11yReporter(mockExecutor, {
+					console: mockConsole,
 					filename: reportFile
 				});
 
@@ -113,6 +136,8 @@ registerSuite('unit/A11yReporter', {
 					2,
 					'unexpected number of report files'
 				);
+
+				assert.lengthOf(mockConsole.messages, 0);
 			}
 		}
 	}
