@@ -31,6 +31,9 @@ export interface TenonTestOptions {
 	config?: TenonConfig;
 }
 
+/**
+ * Check a page for a11y violations using tenon.
+ */
 export function check(options: TenonTestOptions) {
 	return new Promise<TenonResults>(function(resolve, reject) {
 		let apiKey = process.env['TENON_API_KEY'];

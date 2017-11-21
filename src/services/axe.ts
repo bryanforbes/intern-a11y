@@ -4,6 +4,7 @@ import { AxeResults, toA11yResults } from './_axe';
 import Command from '@theintern/leadfoot/Command';
 
 export interface AxeTestOptions {
+	/** aXe-specific config parameters */
 	config?: {
 		branding?: {
 			brand?: string;
@@ -50,6 +51,10 @@ export interface AxeRunTestOptions extends AxeTestOptions {
 	waitFor?: number;
 }
 
+/**
+ * Create a checker function that will check a page for a11y violations using
+ * aXe.
+ */
 export function createChecker(
 	options?: AxeTestOptions
 ): () => Command<A11yResults> {
@@ -156,6 +161,9 @@ export function createChecker(
 	};
 }
 
+/**
+ * Check a page for a11y violations using aXe.
+ */
 export function check(options?: AxeRunTestOptions) {
 	options = options || <AxeRunTestOptions>{};
 

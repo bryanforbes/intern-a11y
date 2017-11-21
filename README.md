@@ -95,7 +95,7 @@ Importing the `intern-a11y` module will return an object with `tenon` and `axe` 
 
 ### axe
 
-The aXe checker must be injected into the page being analyzed, and therefore can only be used in functional test suites. These must be run using Intern's WebDriver runner, `intern-runner` (or `intern run -w` with [intern-cli](https://github.com/theintern/intern-cli)). The aXe checker provides two functions, `check` and `createChecker`.
+The aXe checker must be injected into the page being analyzed, and therefore can only be used in functional test suites. The aXe checker provides two functions, `check` and `createChecker`.
 
 #### check
 
@@ -129,18 +129,12 @@ There are three optional parameters. `waitFor` is a number of milliseconds to wa
 The `createChecker` function returns a Leadfoot Command helper (a `then` callback). It assumes that a page has already been loaded and is ready to be tested, so it doesn't need a source or Command object.
 
 ```typescript
-createChecker({
-	/** aXe-specific configuration */
-	config?: Object,
-
-	/** aXe plugin definitions */
-	plugins?: Object
-}): Function
+createChecker(config?: AxeTestOptions): Command<A11yResults>
 ```
 
 ### tenon
 
-The Tenon checker works by making requests to a remote cloud service. It can be used in functional or unit test suites. When used in unit test suites, the Tenon checker must be used with Intern's Node client, `intern-client` (or `intern run` with intern-cli).
+The Tenon checker works by making requests to a remote cloud service. It can be used in functional or unit test suites.
 
 #### check
 
