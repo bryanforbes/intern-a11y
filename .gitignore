@@ -2,3 +2,4 @@ _build/
 dist/
 a11y-report.html
 node_modules/
+*.tgz
