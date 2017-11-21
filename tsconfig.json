@@ -5,7 +5,8 @@
 		"importHelpers": true,
 		"lib": ["es5", "es2015.promise", "es2015.symbol.wellknown", "dom"],
 		"outDir": "./_build",
-		"rootDir": "."
+		"rootDir": ".",
+		"types": ["intern"]
 	},
 	"include": ["./src/**/*.ts"]
 }

@@ -1,27 +1,48 @@
-import Test from 'intern/lib/Test';
 import { join } from 'path';
 import { mkdirSync, writeFile, writeFileSync } from 'fs';
+import Test from 'intern/lib/Test';
+import Suite from 'intern/lib/Suite';
+import { Executor } from 'intern/lib/executors/Executor';
 import { A11yResults, A11yViolation } from './common';
 
+/**
+ * A11yReporter writes test results to a file or a directory of files.
+ */
 export default class A11yReporter {
-	config: any;
-
+	executor: Executor;
 	filename: string;
 
-	report: string[];
+	protected _report: string[] | undefined;
 
-	constructor(config: any) {
-		this.config = config;
-		this.filename = this.config.filename;
+	/**
+	 * WriteReport writes a set of A11yResults to a file
+	 */
+	static writeReport(filename: string, results: A11yResults, id: string) {
+		return new Promise((resolve, reject) => {
+			const content = renderResults(results, id);
+			writeFile(filename, renderReport(content), error => {
+				if (error) {
+					reject(error);
+				} else {
+					resolve(results);
+				}
+			});
+		});
+	}
 
-		if (!this.filename) {
-			this.filename = 'a11y-report';
-		}
+	constructor(executor: Executor, options?: A11yReporterOptions) {
+		this.executor = executor;
+
+		options = options || {};
+		this.filename = options.filename || 'a11y-report';
 
 		if (/\.html$/.test(this.filename)) {
-			this.report = [];
+			// Filename is a single HTML file that will contain multiple
+			// individual reports
+			this._report = [];
 		} else {
-			// ReporterManager will already have created dirname(this.config.filename)
+			// Filename is a directory that will store multiple reports, one
+			// per file.
 			try {
 				mkdirSync(this.filename);
 			} catch (error) {
@@ -30,18 +51,23 @@ export default class A11yReporter {
 				}
 			}
 		}
+
+		executor.on('testEnd', this.testEnd.bind(this));
+		executor.on('suiteEnd', this.suiteEnd.bind(this));
 	}
 
-	testFail(test: Test) {
+	testEnd(test: Test) {
 		const error = test.error;
 		let results: A11yResults = (<any>error).a11yResults;
 
 		if (results) {
 			const content = renderResults(results, test.id);
 
-			if (this.report) {
-				this.report.push(content);
+			if (this._report) {
+				// Add this report to the reports list
+				this._report.push(content);
 			} else {
+				// Write this report to a file
 				const filename = join(
 					this.filename,
 					sanitizeFilename(test.id + '.html')
@@ -51,24 +77,26 @@ export default class A11yReporter {
 		}
 	}
 
-	runEnd() {
-		if (this.report) {
-			writeFileSync(this.filename, renderReport(this.report.join('')));
+	suiteEnd(suite: Suite) {
+		if (!suite.hasParent) {
+			if (this._report) {
+				writeFileSync(
+					this.filename,
+					renderReport(this._report.join(''))
+				);
+			}
 		}
 	}
+}
 
-	static writeReport(filename: string, results: A11yResults, id: string) {
-		return new Promise(function(resolve, reject) {
-			const content = renderResults(results, id);
-			writeFile(filename, renderReport(content), function(error) {
-				if (error) {
-					reject(error);
-				} else {
-					resolve(results);
-				}
-			});
-		});
-	}
+export interface A11yReporterOptions {
+	filename?: string;
+}
+
+if (typeof intern !== 'undefined') {
+	intern.registerPlugin('A11yReporter', options => {
+		new A11yReporter(intern, options);
+	});
 }
 
 function escape(str: string) {

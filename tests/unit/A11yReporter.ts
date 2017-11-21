@@ -23,6 +23,10 @@ function remove(path: string) {
 
 const dataDir = join(__dirname, '../data');
 
+const mockExecutor: any = {
+	on() {}
+};
+
 registerSuite('unit/A11yReporter', {
 	afterEach() {
 		if (reportFile) {
@@ -49,7 +53,9 @@ registerSuite('unit/A11yReporter', {
 			// Expect reports for all tests to be output to a single file
 			'to file'() {
 				reportFile = '_tempreport.html';
-				const reporter = new A11yReporter({ filename: reportFile });
+				const reporter = new A11yReporter(mockExecutor, {
+					filename: reportFile
+				});
 
 				const data = readFileSync(`${dataDir}/a11y_results.json`, {
 					encoding: 'utf8'
@@ -61,14 +67,14 @@ registerSuite('unit/A11yReporter', {
 				test1.error = new A11yError('Oops', results);
 				test2.error = new A11yError('Oops', results);
 
-				reporter.testFail(test1);
-				reporter.testFail(test2);
+				reporter.testEnd(test1);
+				reporter.testEnd(test2);
 				assert.isFalse(
 					fileExists(reportFile),
 					'did not expect report file to exist'
 				);
 
-				reporter.runEnd();
+				reporter.suiteEnd(<any>{ hasParent: false });
 				assert.isTrue(
 					fileExists(reportFile),
 					'exected report file to exist'
@@ -78,7 +84,9 @@ registerSuite('unit/A11yReporter', {
 			// Expect report for each test to be output to an individual file, all in the same directory
 			'to directory'() {
 				reportFile = '_tempreports';
-				const reporter = new A11yReporter({ filename: reportFile });
+				const reporter = new A11yReporter(mockExecutor, {
+					filename: reportFile
+				});
 
 				const data = readFileSync(`${dataDir}/a11y_results.json`, {
 					encoding: 'utf8'
@@ -90,7 +98,7 @@ registerSuite('unit/A11yReporter', {
 				test1.error = new A11yError('Oops', results);
 				test2.error = new A11yError('Oops', results);
 
-				reporter.testFail(test1);
+				reporter.testEnd(test1);
 				let entries = readdirSync(reportFile);
 				assert.lengthOf(
 					entries,
@@ -98,7 +106,7 @@ registerSuite('unit/A11yReporter', {
 					'unexpected number of report files'
 				);
 
-				reporter.testFail(test2);
+				reporter.testEnd(test2);
 				entries = readdirSync(reportFile);
 				assert.lengthOf(
 					entries,

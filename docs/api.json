@@ -26,9 +26,12 @@
 						"isExported": true,
 						"__visited__": true
 					},
+					"comment": {
+						"shortText": "A11yReporter writes test results to a file or a directory of files."
+					},
 					"children": [
 						{
-							"id": 33,
+							"id": 38,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -38,7 +41,7 @@
 							},
 							"signatures": [
 								{
-									"id": 34,
+									"id": 39,
 									"name": "new A11yReporter",
 									"kind": 16384,
 									"kindString": "Constructor signature",
@@ -47,16 +50,31 @@
 									},
 									"parameters": [
 										{
-											"id": 35,
-											"name": "config",
+											"id": 40,
+											"name": "executor",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {
 												"__visited__": true
 											},
 											"type": {
-												"type": "intrinsic",
-												"name": "any"
+												"type": "reference",
+												"name": "Executor"
+											}
+										},
+										{
+											"id": 41,
+											"name": "options",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true,
+												"__visited__": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "A11yReporterOptions",
+												"id": 48
 											}
 										}
 									],
@@ -70,14 +88,48 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 11,
-									"character": 18
+									"line": 31,
+									"character": 2
 								}
 							]
 						},
 						{
+							"id": 32,
+							"name": "_report",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isProtected": true,
+								"__visited__": true
+							},
+							"sources": [
+								{
+									"fileName": "A11yReporter.ts",
+									"line": 15,
+									"character": 18
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									},
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									}
+								]
+							}
+						},
+						{
 							"id": 30,
-							"name": "config",
+							"name": "executor",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
@@ -87,13 +139,13 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 7,
-									"character": 7
+									"line": 12,
+									"character": 9
 								}
 							],
 							"type": {
-								"type": "intrinsic",
-								"name": "any"
+								"type": "reference",
+								"name": "Executor"
 							}
 						},
 						{
@@ -108,7 +160,7 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 9,
+									"line": 13,
 									"character": 9
 								}
 							],
@@ -118,32 +170,8 @@
 							}
 						},
 						{
-							"id": 32,
-							"name": "report",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"__visited__": true
-							},
-							"sources": [
-								{
-									"fileName": "A11yReporter.ts",
-									"line": 11,
-									"character": 7
-								}
-							],
-							"type": {
-								"type": "array",
-								"elementType": {
-									"type": "intrinsic",
-									"name": "string"
-								}
-							}
-						},
-						{
-							"id": 39,
-							"name": "runEnd",
+							"id": 45,
+							"name": "suiteEnd",
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
@@ -152,13 +180,28 @@
 							},
 							"signatures": [
 								{
-									"id": 40,
-									"name": "runEnd",
+									"id": 46,
+									"name": "suiteEnd",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {
 										"__visited__": true
 									},
+									"parameters": [
+										{
+											"id": 47,
+											"name": "suite",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"__visited__": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "Suite"
+											}
+										}
+									],
 									"type": {
 										"type": "intrinsic",
 										"name": "void"
@@ -168,14 +211,14 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 54,
-									"character": 7
+									"line": 80,
+									"character": 9
 								}
 							]
 						},
 						{
-							"id": 36,
-							"name": "testFail",
+							"id": 42,
+							"name": "testEnd",
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
@@ -184,8 +227,8 @@
 							},
 							"signatures": [
 								{
-									"id": 37,
-									"name": "testFail",
+									"id": 43,
+									"name": "testEnd",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {
@@ -193,7 +236,7 @@
 									},
 									"parameters": [
 										{
-											"id": 38,
+											"id": 44,
 											"name": "test",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -215,13 +258,13 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 35,
-									"character": 9
+									"line": 59,
+									"character": 8
 								}
 							]
 						},
 						{
-							"id": 41,
+							"id": 33,
 							"name": "writeReport",
 							"kind": 2048,
 							"kindString": "Method",
@@ -232,16 +275,19 @@
 							},
 							"signatures": [
 								{
-									"id": 42,
+									"id": 34,
 									"name": "writeReport",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {
 										"__visited__": true
 									},
+									"comment": {
+										"shortText": "WriteReport writes a set of A11yResults to a file"
+									},
 									"parameters": [
 										{
-											"id": 43,
+											"id": 35,
 											"name": "filename",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -254,7 +300,7 @@
 											}
 										},
 										{
-											"id": 44,
+											"id": 36,
 											"name": "results",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -268,7 +314,7 @@
 											}
 										},
 										{
-											"id": 45,
+											"id": 37,
 											"name": "id",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -296,7 +342,7 @@
 							"sources": [
 								{
 									"fileName": "A11yReporter.ts",
-									"line": 60,
+									"line": 20,
 									"character": 19
 								}
 							]
@@ -307,38 +353,97 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								33
+								38
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
+								32,
 								30,
-								31,
-								32
+								31
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								39,
-								36,
-								41
+								45,
+								42,
+								33
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 6,
+							"line": 11,
 							"character": 33
 						}
 					]
 				},
 				{
-					"id": 46,
+					"id": 48,
+					"name": "A11yReporterOptions",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true,
+						"__visited__": true
+					},
+					"children": [
+						{
+							"id": 49,
+							"name": "filename",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true,
+								"__visited__": true
+							},
+							"sources": [
+								{
+									"fileName": "A11yReporter.ts",
+									"line": 93,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								49
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "A11yReporter.ts",
+							"line": 92,
+							"character": 36
+						}
+					]
+				},
+				{
+					"id": 50,
 					"name": "escape",
 					"kind": 64,
 					"kindString": "Function",
@@ -347,7 +452,7 @@
 					},
 					"signatures": [
 						{
-							"id": 47,
+							"id": 51,
 							"name": "escape",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -356,7 +461,7 @@
 							},
 							"parameters": [
 								{
-									"id": 48,
+									"id": 52,
 									"name": "str",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -378,13 +483,13 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 74,
+							"line": 102,
 							"character": 15
 						}
 					]
 				},
 				{
-					"id": 49,
+					"id": 53,
 					"name": "renderReport",
 					"kind": 64,
 					"kindString": "Function",
@@ -393,7 +498,7 @@
 					},
 					"signatures": [
 						{
-							"id": 50,
+							"id": 54,
 							"name": "renderReport",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -402,7 +507,7 @@
 							},
 							"parameters": [
 								{
-									"id": 51,
+									"id": 55,
 									"name": "body",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -424,13 +529,13 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 78,
+							"line": 106,
 							"character": 21
 						}
 					]
 				},
 				{
-					"id": 52,
+					"id": 56,
 					"name": "renderResults",
 					"kind": 64,
 					"kindString": "Function",
@@ -439,7 +544,7 @@
 					},
 					"signatures": [
 						{
-							"id": 53,
+							"id": 57,
 							"name": "renderResults",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -448,7 +553,7 @@
 							},
 							"parameters": [
 								{
-									"id": 54,
+									"id": 58,
 									"name": "results",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -462,7 +567,7 @@
 									}
 								},
 								{
-									"id": 55,
+									"id": 59,
 									"name": "id",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -484,13 +589,13 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 144,
+							"line": 172,
 							"character": 22
 						}
 					]
 				},
 				{
-					"id": 56,
+					"id": 60,
 					"name": "renderViolation",
 					"kind": 64,
 					"kindString": "Function",
@@ -499,7 +604,7 @@
 					},
 					"signatures": [
 						{
-							"id": 57,
+							"id": 61,
 							"name": "renderViolation",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -508,7 +613,7 @@
 							},
 							"parameters": [
 								{
-									"id": 58,
+									"id": 62,
 									"name": "violation",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -531,13 +636,13 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 169,
+							"line": 197,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 59,
+					"id": 63,
 					"name": "sanitizeFilename",
 					"kind": 64,
 					"kindString": "Function",
@@ -546,7 +651,7 @@
 					},
 					"signatures": [
 						{
-							"id": 60,
+							"id": 64,
 							"name": "sanitizeFilename",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -555,7 +660,7 @@
 							},
 							"parameters": [
 								{
-									"id": 61,
+									"id": 65,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -577,7 +682,7 @@
 					"sources": [
 						{
 							"fileName": "A11yReporter.ts",
-							"line": 200,
+							"line": 228,
 							"character": 25
 						}
 					]
@@ -592,14 +697,21 @@
 					]
 				},
 				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						48
+					]
+				},
+				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						46,
-						49,
-						52,
+						50,
+						53,
 						56,
-						59
+						60,
+						63
 					]
 				}
 			],
@@ -1265,7 +1377,7 @@
 			]
 		},
 		{
-			"id": 335,
+			"id": 339,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1276,7 +1388,7 @@
 			"originalName": "src/index.ts",
 			"children": [
 				{
-					"id": 336,
+					"id": 340,
 					"name": "services",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -1286,7 +1398,7 @@
 					},
 					"children": [
 						{
-							"id": 337,
+							"id": 341,
 							"name": "axe",
 							"kind": 32,
 							"kindString": "Variable",
@@ -1304,11 +1416,11 @@
 							"type": {
 								"type": "reference",
 								"name": "\"/Users/jason/Documents/Work/src/intern/intern-a11y/src/services/axe\"",
-								"id": 95
+								"id": 99
 							}
 						},
 						{
-							"id": 338,
+							"id": 342,
 							"name": "tenon",
 							"kind": 32,
 							"kindString": "Variable",
@@ -1326,7 +1438,7 @@
 							"type": {
 								"type": "reference",
 								"name": "\"/Users/jason/Documents/Work/src/intern/intern-a11y/src/services/tenon\"",
-								"id": 301
+								"id": 305
 							}
 						}
 					],
@@ -1335,8 +1447,8 @@
 							"title": "Variables",
 							"kind": 32,
 							"children": [
-								337,
-								338
+								341,
+								342
 							]
 						}
 					],
@@ -1358,7 +1470,7 @@
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						336
+						340
 					]
 				}
 			],
@@ -1371,7 +1483,7 @@
 			]
 		},
 		{
-			"id": 62,
+			"id": 66,
 			"name": "\"services/_axe\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1382,7 +1494,7 @@
 			"originalName": "src/services/_axe.ts",
 			"children": [
 				{
-					"id": 63,
+					"id": 67,
 					"name": "AxeCheck",
 					"kind": 256,
 					"kindString": "Interface",
@@ -1392,7 +1504,7 @@
 					},
 					"children": [
 						{
-							"id": 67,
+							"id": 71,
 							"name": "data",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1413,7 +1525,7 @@
 							}
 						},
 						{
-							"id": 64,
+							"id": 68,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1434,7 +1546,7 @@
 							}
 						},
 						{
-							"id": 65,
+							"id": 69,
 							"name": "impact",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1455,7 +1567,7 @@
 							}
 						},
 						{
-							"id": 66,
+							"id": 70,
 							"name": "message",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1476,7 +1588,7 @@
 							}
 						},
 						{
-							"id": 68,
+							"id": 72,
 							"name": "relatedNodes",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1496,7 +1608,7 @@
 								"elementType": {
 									"type": "reflection",
 									"declaration": {
-										"id": 69,
+										"id": 73,
 										"name": "__type",
 										"kind": 65536,
 										"kindString": "Type literal",
@@ -1505,7 +1617,7 @@
 										},
 										"children": [
 											{
-												"id": 71,
+												"id": 75,
 												"name": "html",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1525,7 +1637,7 @@
 												}
 											},
 											{
-												"id": 70,
+												"id": 74,
 												"name": "target",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1553,8 +1665,8 @@
 												"title": "Variables",
 												"kind": 32,
 												"children": [
-													71,
-													70
+													75,
+													74
 												]
 											}
 										],
@@ -1575,11 +1687,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								67,
-								64,
-								65,
-								66,
-								68
+								71,
+								68,
+								69,
+								70,
+								72
 							]
 						}
 					],
@@ -1592,7 +1704,7 @@
 					]
 				},
 				{
-					"id": 72,
+					"id": 76,
 					"name": "AxeResult",
 					"kind": 256,
 					"kindString": "Interface",
@@ -1602,7 +1714,7 @@
 					},
 					"children": [
 						{
-							"id": 73,
+							"id": 77,
 							"name": "description",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1623,7 +1735,7 @@
 							}
 						},
 						{
-							"id": 74,
+							"id": 78,
 							"name": "help",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1644,7 +1756,7 @@
 							}
 						},
 						{
-							"id": 75,
+							"id": 79,
 							"name": "helpUrl",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1665,7 +1777,7 @@
 							}
 						},
 						{
-							"id": 76,
+							"id": 80,
 							"name": "id",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1686,7 +1798,7 @@
 							}
 						},
 						{
-							"id": 77,
+							"id": 81,
 							"name": "impact",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1707,7 +1819,7 @@
 							}
 						},
 						{
-							"id": 79,
+							"id": 83,
 							"name": "nodes",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1727,7 +1839,7 @@
 								"elementType": {
 									"type": "reflection",
 									"declaration": {
-										"id": 80,
+										"id": 84,
 										"name": "__type",
 										"kind": 65536,
 										"kindString": "Type literal",
@@ -1736,7 +1848,7 @@
 										},
 										"children": [
 											{
-												"id": 85,
+												"id": 89,
 												"name": "all",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1755,12 +1867,12 @@
 													"elementType": {
 														"type": "reference",
 														"name": "AxeCheck",
-														"id": 63
+														"id": 67
 													}
 												}
 											},
 											{
-												"id": 84,
+												"id": 88,
 												"name": "any",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1779,12 +1891,12 @@
 													"elementType": {
 														"type": "reference",
 														"name": "AxeCheck",
-														"id": 63
+														"id": 67
 													}
 												}
 											},
 											{
-												"id": 81,
+												"id": 85,
 												"name": "html",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1804,7 +1916,7 @@
 												}
 											},
 											{
-												"id": 82,
+												"id": 86,
 												"name": "impact",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1824,7 +1936,7 @@
 												}
 											},
 											{
-												"id": 86,
+												"id": 90,
 												"name": "none",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1843,12 +1955,12 @@
 													"elementType": {
 														"type": "reference",
 														"name": "AxeCheck",
-														"id": 63
+														"id": 67
 													}
 												}
 											},
 											{
-												"id": 83,
+												"id": 87,
 												"name": "target",
 												"kind": 32,
 												"kindString": "Variable",
@@ -1876,12 +1988,12 @@
 												"title": "Variables",
 												"kind": 32,
 												"children": [
+													89,
+													88,
 													85,
-													84,
-													81,
-													82,
 													86,
-													83
+													90,
+													87
 												]
 											}
 										],
@@ -1897,7 +2009,7 @@
 							}
 						},
 						{
-							"id": 78,
+							"id": 82,
 							"name": "tags",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1926,13 +2038,13 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								73,
-								74,
-								75,
-								76,
 								77,
+								78,
 								79,
-								78
+								80,
+								81,
+								83,
+								82
 							]
 						}
 					],
@@ -1945,7 +2057,7 @@
 					]
 				},
 				{
-					"id": 87,
+					"id": 91,
 					"name": "AxeResults",
 					"kind": 256,
 					"kindString": "Interface",
@@ -1955,7 +2067,7 @@
 					},
 					"children": [
 						{
-							"id": 90,
+							"id": 94,
 							"name": "passes",
 							"kind": 1024,
 							"kindString": "Property",
@@ -1975,12 +2087,12 @@
 								"elementType": {
 									"type": "reference",
 									"name": "AxeResult",
-									"id": 72
+									"id": 76
 								}
 							}
 						},
 						{
-							"id": 89,
+							"id": 93,
 							"name": "timestamp",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2001,7 +2113,7 @@
 							}
 						},
 						{
-							"id": 88,
+							"id": 92,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2022,7 +2134,7 @@
 							}
 						},
 						{
-							"id": 91,
+							"id": 95,
 							"name": "violations",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2042,7 +2154,7 @@
 								"elementType": {
 									"type": "reference",
 									"name": "AxeResult",
-									"id": 72
+									"id": 76
 								}
 							}
 						}
@@ -2052,10 +2164,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								90,
-								89,
-								88,
-								91
+								94,
+								93,
+								92,
+								95
 							]
 						}
 					],
@@ -2068,7 +2180,7 @@
 					]
 				},
 				{
-					"id": 92,
+					"id": 96,
 					"name": "toA11yResults",
 					"kind": 64,
 					"kindString": "Function",
@@ -2078,7 +2190,7 @@
 					},
 					"signatures": [
 						{
-							"id": 93,
+							"id": 97,
 							"name": "toA11yResults",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -2087,7 +2199,7 @@
 							},
 							"parameters": [
 								{
-									"id": 94,
+									"id": 98,
 									"name": "axeResults",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -2097,7 +2209,7 @@
 									"type": {
 										"type": "reference",
 										"name": "AxeResults",
-										"id": 87
+										"id": 91
 									}
 								}
 							],
@@ -2122,16 +2234,16 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						63,
-						72,
-						87
+						67,
+						76,
+						91
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						92
+						96
 					]
 				}
 			],
@@ -2144,7 +2256,7 @@
 			]
 		},
 		{
-			"id": 191,
+			"id": 195,
 			"name": "\"services/_tenon\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2155,7 +2267,7 @@
 			"originalName": "src/services/_tenon.ts",
 			"children": [
 				{
-					"id": 192,
+					"id": 196,
 					"name": "TenonResults",
 					"kind": 256,
 					"kindString": "Interface",
@@ -2165,7 +2277,7 @@
 					},
 					"children": [
 						{
-							"id": 193,
+							"id": 197,
 							"name": "apiErrors",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2189,7 +2301,7 @@
 							}
 						},
 						{
-							"id": 289,
+							"id": 293,
 							"name": "clientScriptErrors",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2207,7 +2319,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 290,
+									"id": 294,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -2216,7 +2328,7 @@
 									},
 									"children": [
 										{
-											"id": 291,
+											"id": 295,
 											"name": "message",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2236,7 +2348,7 @@
 											}
 										},
 										{
-											"id": 292,
+											"id": 296,
 											"name": "stacktrace",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2264,8 +2376,8 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												291,
-												292
+												295,
+												296
 											]
 										}
 									],
@@ -2280,7 +2392,7 @@
 							}
 						},
 						{
-							"id": 293,
+							"id": 297,
 							"name": "code",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2301,7 +2413,7 @@
 							}
 						},
 						{
-							"id": 194,
+							"id": 198,
 							"name": "documentSize",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2322,7 +2434,7 @@
 							}
 						},
 						{
-							"id": 195,
+							"id": 199,
 							"name": "globalStats",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2340,7 +2452,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 196,
+									"id": 200,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -2349,7 +2461,7 @@
 									},
 									"children": [
 										{
-											"id": 199,
+											"id": 203,
 											"name": "allDensity",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2369,7 +2481,7 @@
 											}
 										},
 										{
-											"id": 197,
+											"id": 201,
 											"name": "errorDensity",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2389,7 +2501,7 @@
 											}
 										},
 										{
-											"id": 200,
+											"id": 204,
 											"name": "stdDev",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2409,7 +2521,7 @@
 											}
 										},
 										{
-											"id": 198,
+											"id": 202,
 											"name": "warningDensity",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2434,10 +2546,10 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												199,
-												197,
-												200,
-												198
+												203,
+												201,
+												204,
+												202
 											]
 										}
 									],
@@ -2452,7 +2564,7 @@
 							}
 						},
 						{
-							"id": 201,
+							"id": 205,
 							"name": "message",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2473,7 +2585,7 @@
 							}
 						},
 						{
-							"id": 294,
+							"id": 298,
 							"name": "moreInfo",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2494,7 +2606,7 @@
 							}
 						},
 						{
-							"id": 202,
+							"id": 206,
 							"name": "request",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2512,7 +2624,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 203,
+									"id": 207,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -2521,7 +2633,7 @@
 									},
 									"children": [
 										{
-											"id": 213,
+											"id": 217,
 											"name": "certainty",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2541,7 +2653,7 @@
 											}
 										},
 										{
-											"id": 211,
+											"id": 215,
 											"name": "docID",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2561,7 +2673,7 @@
 											}
 										},
 										{
-											"id": 216,
+											"id": 220,
 											"name": "fragment",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2581,7 +2693,7 @@
 											}
 										},
 										{
-											"id": 206,
+											"id": 210,
 											"name": "importance",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2601,7 +2713,7 @@
 											}
 										},
 										{
-											"id": 212,
+											"id": 216,
 											"name": "level",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2621,7 +2733,7 @@
 											}
 										},
 										{
-											"id": 214,
+											"id": 218,
 											"name": "priority",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2641,7 +2753,7 @@
 											}
 										},
 										{
-											"id": 210,
+											"id": 214,
 											"name": "projectID",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2661,7 +2773,7 @@
 											}
 										},
 										{
-											"id": 205,
+											"id": 209,
 											"name": "ref",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2681,7 +2793,7 @@
 											}
 										},
 										{
-											"id": 207,
+											"id": 211,
 											"name": "responseID",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2701,7 +2813,7 @@
 											}
 										},
 										{
-											"id": 217,
+											"id": 221,
 											"name": "store",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2721,7 +2833,7 @@
 											}
 										},
 										{
-											"id": 209,
+											"id": 213,
 											"name": "uaString",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2741,7 +2853,7 @@
 											}
 										},
 										{
-											"id": 204,
+											"id": 208,
 											"name": "url",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2761,7 +2873,7 @@
 											}
 										},
 										{
-											"id": 208,
+											"id": 212,
 											"name": "userID",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2781,7 +2893,7 @@
 											}
 										},
 										{
-											"id": 218,
+											"id": 222,
 											"name": "viewport",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2798,7 +2910,7 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 219,
+													"id": 223,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
@@ -2807,7 +2919,7 @@
 													},
 													"children": [
 														{
-															"id": 220,
+															"id": 224,
 															"name": "height",
 															"kind": 32,
 															"kindString": "Variable",
@@ -2827,7 +2939,7 @@
 															}
 														},
 														{
-															"id": 221,
+															"id": 225,
 															"name": "width",
 															"kind": 32,
 															"kindString": "Variable",
@@ -2852,8 +2964,8 @@
 															"title": "Variables",
 															"kind": 32,
 															"children": [
-																220,
-																221
+																224,
+																225
 															]
 														}
 													],
@@ -2868,7 +2980,7 @@
 											}
 										},
 										{
-											"id": 215,
+											"id": 219,
 											"name": "waitFor",
 											"kind": 32,
 											"kindString": "Variable",
@@ -2893,21 +3005,21 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												213,
-												211,
-												216,
-												206,
-												212,
-												214,
-												210,
-												205,
-												207,
 												217,
-												209,
-												204,
-												208,
+												215,
+												220,
+												210,
+												216,
 												218,
-												215
+												214,
+												209,
+												211,
+												221,
+												213,
+												208,
+												212,
+												222,
+												219
 											]
 										}
 									],
@@ -2922,7 +3034,7 @@
 							}
 						},
 						{
-							"id": 222,
+							"id": 226,
 							"name": "responseExecTime",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2943,7 +3055,7 @@
 							}
 						},
 						{
-							"id": 223,
+							"id": 227,
 							"name": "responseTime",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2964,7 +3076,7 @@
 							}
 						},
 						{
-							"id": 224,
+							"id": 228,
 							"name": "resultSet",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2984,7 +3096,7 @@
 								"elementType": {
 									"type": "reflection",
 									"declaration": {
-										"id": 225,
+										"id": 229,
 										"name": "__type",
 										"kind": 65536,
 										"kindString": "Type literal",
@@ -2993,7 +3105,7 @@
 										},
 										"children": [
 											{
-												"id": 226,
+												"id": 230,
 												"name": "bpID",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3013,7 +3125,7 @@
 												}
 											},
 											{
-												"id": 227,
+												"id": 231,
 												"name": "certainty",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3033,7 +3145,7 @@
 												}
 											},
 											{
-												"id": 228,
+												"id": 232,
 												"name": "errorDescription",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3053,7 +3165,7 @@
 												}
 											},
 											{
-												"id": 229,
+												"id": 233,
 												"name": "errorSnippet",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3073,7 +3185,7 @@
 												}
 											},
 											{
-												"id": 230,
+												"id": 234,
 												"name": "errorTitle",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3093,7 +3205,7 @@
 												}
 											},
 											{
-												"id": 231,
+												"id": 235,
 												"name": "issueID",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3113,7 +3225,7 @@
 												}
 											},
 											{
-												"id": 232,
+												"id": 236,
 												"name": "position",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3130,7 +3242,7 @@
 												"type": {
 													"type": "reflection",
 													"declaration": {
-														"id": 233,
+														"id": 237,
 														"name": "__type",
 														"kind": 65536,
 														"kindString": "Type literal",
@@ -3139,7 +3251,7 @@
 														},
 														"children": [
 															{
-																"id": 235,
+																"id": 239,
 																"name": "column",
 																"kind": 32,
 																"kindString": "Variable",
@@ -3159,7 +3271,7 @@
 																}
 															},
 															{
-																"id": 234,
+																"id": 238,
 																"name": "line",
 																"kind": 32,
 																"kindString": "Variable",
@@ -3184,8 +3296,8 @@
 																"title": "Variables",
 																"kind": 32,
 																"children": [
-																	235,
-																	234
+																	239,
+																	238
 																]
 															}
 														],
@@ -3200,7 +3312,7 @@
 												}
 											},
 											{
-												"id": 236,
+												"id": 240,
 												"name": "priority",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3220,7 +3332,7 @@
 												}
 											},
 											{
-												"id": 237,
+												"id": 241,
 												"name": "ref",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3240,7 +3352,7 @@
 												}
 											},
 											{
-												"id": 238,
+												"id": 242,
 												"name": "resultTitle",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3260,7 +3372,7 @@
 												}
 											},
 											{
-												"id": 239,
+												"id": 243,
 												"name": "signature",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3280,7 +3392,7 @@
 												}
 											},
 											{
-												"id": 240,
+												"id": 244,
 												"name": "standards",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3303,7 +3415,7 @@
 												}
 											},
 											{
-												"id": 241,
+												"id": 245,
 												"name": "tID",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3323,7 +3435,7 @@
 												}
 											},
 											{
-												"id": 242,
+												"id": 246,
 												"name": "viewPortLocation",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3340,7 +3452,7 @@
 												"type": {
 													"type": "reflection",
 													"declaration": {
-														"id": 243,
+														"id": 247,
 														"name": "__type",
 														"kind": 65536,
 														"kindString": "Type literal",
@@ -3349,7 +3461,7 @@
 														},
 														"children": [
 															{
-																"id": 244,
+																"id": 248,
 																"name": "bottom-right",
 																"kind": 32,
 																"kindString": "Variable",
@@ -3361,113 +3473,6 @@
 																		"fileName": "services/_tenon.ts",
 																		"line": 59,
 																		"character": 17
-																	}
-																],
-																"type": {
-																	"type": "reflection",
-																	"declaration": {
-																		"id": 245,
-																		"name": "__type",
-																		"kind": 65536,
-																		"kindString": "Type literal",
-																		"flags": {
-																			"__visited__": true
-																		},
-																		"children": [
-																			{
-																				"id": 246,
-																				"name": "x",
-																				"kind": 32,
-																				"kindString": "Variable",
-																				"flags": {
-																					"__visited__": true
-																				},
-																				"sources": [
-																					{
-																						"fileName": "services/_tenon.ts",
-																						"line": 60,
-																						"character": 5
-																					}
-																				],
-																				"type": {
-																					"type": "intrinsic",
-																					"name": "number"
-																				}
-																			},
-																			{
-																				"id": 247,
-																				"name": "y",
-																				"kind": 32,
-																				"kindString": "Variable",
-																				"flags": {
-																					"__visited__": true
-																				},
-																				"sources": [
-																					{
-																						"fileName": "services/_tenon.ts",
-																						"line": 61,
-																						"character": 5
-																					}
-																				],
-																				"type": {
-																					"type": "intrinsic",
-																					"name": "number"
-																				}
-																			}
-																		],
-																		"groups": [
-																			{
-																				"title": "Variables",
-																				"kind": 32,
-																				"children": [
-																					246,
-																					247
-																				]
-																			}
-																		],
-																		"sources": [
-																			{
-																				"fileName": "services/_tenon.ts",
-																				"line": 59,
-																				"character": 18
-																			}
-																		]
-																	}
-																}
-															},
-															{
-																"id": 252,
-																"name": "height",
-																"kind": 32,
-																"kindString": "Variable",
-																"flags": {
-																	"__visited__": true
-																},
-																"sources": [
-																	{
-																		"fileName": "services/_tenon.ts",
-																		"line": 67,
-																		"character": 9
-																	}
-																],
-																"type": {
-																	"type": "intrinsic",
-																	"name": "number"
-																}
-															},
-															{
-																"id": 248,
-																"name": "top-left",
-																"kind": 32,
-																"kindString": "Variable",
-																"flags": {
-																	"__visited__": true
-																},
-																"sources": [
-																	{
-																		"fileName": "services/_tenon.ts",
-																		"line": 63,
-																		"character": 13
 																	}
 																],
 																"type": {
@@ -3492,7 +3497,7 @@
 																				"sources": [
 																					{
 																						"fileName": "services/_tenon.ts",
-																						"line": 64,
+																						"line": 60,
 																						"character": 5
 																					}
 																				],
@@ -3503,6 +3508,113 @@
 																			},
 																			{
 																				"id": 251,
+																				"name": "y",
+																				"kind": 32,
+																				"kindString": "Variable",
+																				"flags": {
+																					"__visited__": true
+																				},
+																				"sources": [
+																					{
+																						"fileName": "services/_tenon.ts",
+																						"line": 61,
+																						"character": 5
+																					}
+																				],
+																				"type": {
+																					"type": "intrinsic",
+																					"name": "number"
+																				}
+																			}
+																		],
+																		"groups": [
+																			{
+																				"title": "Variables",
+																				"kind": 32,
+																				"children": [
+																					250,
+																					251
+																				]
+																			}
+																		],
+																		"sources": [
+																			{
+																				"fileName": "services/_tenon.ts",
+																				"line": 59,
+																				"character": 18
+																			}
+																		]
+																	}
+																}
+															},
+															{
+																"id": 256,
+																"name": "height",
+																"kind": 32,
+																"kindString": "Variable",
+																"flags": {
+																	"__visited__": true
+																},
+																"sources": [
+																	{
+																		"fileName": "services/_tenon.ts",
+																		"line": 67,
+																		"character": 9
+																	}
+																],
+																"type": {
+																	"type": "intrinsic",
+																	"name": "number"
+																}
+															},
+															{
+																"id": 252,
+																"name": "top-left",
+																"kind": 32,
+																"kindString": "Variable",
+																"flags": {
+																	"__visited__": true
+																},
+																"sources": [
+																	{
+																		"fileName": "services/_tenon.ts",
+																		"line": 63,
+																		"character": 13
+																	}
+																],
+																"type": {
+																	"type": "reflection",
+																	"declaration": {
+																		"id": 253,
+																		"name": "__type",
+																		"kind": 65536,
+																		"kindString": "Type literal",
+																		"flags": {
+																			"__visited__": true
+																		},
+																		"children": [
+																			{
+																				"id": 254,
+																				"name": "x",
+																				"kind": 32,
+																				"kindString": "Variable",
+																				"flags": {
+																					"__visited__": true
+																				},
+																				"sources": [
+																					{
+																						"fileName": "services/_tenon.ts",
+																						"line": 64,
+																						"character": 5
+																					}
+																				],
+																				"type": {
+																					"type": "intrinsic",
+																					"name": "number"
+																				}
+																			},
+																			{
+																				"id": 255,
 																				"name": "y",
 																				"kind": 32,
 																				"kindString": "Variable",
@@ -3527,8 +3639,8 @@
 																				"title": "Variables",
 																				"kind": 32,
 																				"children": [
-																					250,
-																					251
+																					254,
+																					255
 																				]
 																			}
 																		],
@@ -3543,7 +3655,7 @@
 																}
 															},
 															{
-																"id": 253,
+																"id": 257,
 																"name": "width",
 																"kind": 32,
 																"kindString": "Variable",
@@ -3568,10 +3680,10 @@
 																"title": "Variables",
 																"kind": 32,
 																"children": [
-																	244,
-																	252,
 																	248,
-																	253
+																	256,
+																	252,
+																	257
 																]
 															}
 														],
@@ -3586,7 +3698,7 @@
 												}
 											},
 											{
-												"id": 254,
+												"id": 258,
 												"name": "xpath",
 												"kind": 32,
 												"kindString": "Variable",
@@ -3611,21 +3723,21 @@
 												"title": "Variables",
 												"kind": 32,
 												"children": [
-													226,
-													227,
-													228,
-													229,
 													230,
 													231,
 													232,
+													233,
+													234,
+													235,
 													236,
-													237,
-													238,
-													239,
 													240,
 													241,
 													242,
-													254
+													243,
+													244,
+													245,
+													246,
+													258
 												]
 											}
 										],
@@ -3641,7 +3753,7 @@
 							}
 						},
 						{
-							"id": 255,
+							"id": 259,
 							"name": "resultSummary",
 							"kind": 1024,
 							"kindString": "Property",
@@ -3659,7 +3771,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 256,
+									"id": 260,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -3668,7 +3780,7 @@
 									},
 									"children": [
 										{
-											"id": 257,
+											"id": 261,
 											"name": "density",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3685,7 +3797,7 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 258,
+													"id": 262,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
@@ -3694,7 +3806,7 @@
 													},
 													"children": [
 														{
-															"id": 259,
+															"id": 263,
 															"name": "allDensity",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3714,7 +3826,7 @@
 															}
 														},
 														{
-															"id": 260,
+															"id": 264,
 															"name": "errorDensity",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3734,7 +3846,7 @@
 															}
 														},
 														{
-															"id": 261,
+															"id": 265,
 															"name": "warningDensity",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3759,9 +3871,9 @@
 															"title": "Variables",
 															"kind": 32,
 															"children": [
-																259,
-																260,
-																261
+																263,
+																264,
+																265
 															]
 														}
 													],
@@ -3776,7 +3888,7 @@
 											}
 										},
 										{
-											"id": 262,
+											"id": 266,
 											"name": "issues",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3793,7 +3905,7 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 263,
+													"id": 267,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
@@ -3802,7 +3914,7 @@
 													},
 													"children": [
 														{
-															"id": 264,
+															"id": 268,
 															"name": "totalErrors",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3822,7 +3934,7 @@
 															}
 														},
 														{
-															"id": 265,
+															"id": 269,
 															"name": "totalIssues",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3842,7 +3954,7 @@
 															}
 														},
 														{
-															"id": 266,
+															"id": 270,
 															"name": "totalWarnings",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3867,9 +3979,9 @@
 															"title": "Variables",
 															"kind": 32,
 															"children": [
-																264,
-																265,
-																266
+																268,
+																269,
+																270
 															]
 														}
 													],
@@ -3884,7 +3996,7 @@
 											}
 										},
 										{
-											"id": 267,
+											"id": 271,
 											"name": "issuesByLevel",
 											"kind": 32,
 											"kindString": "Variable",
@@ -3901,7 +4013,7 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 268,
+													"id": 272,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
@@ -3910,7 +4022,7 @@
 													},
 													"children": [
 														{
-															"id": 269,
+															"id": 273,
 															"name": "A",
 															"kind": 32,
 															"kindString": "Variable",
@@ -3922,93 +4034,6 @@
 																	"fileName": "services/_tenon.ts",
 																	"line": 84,
 																	"character": 4
-																}
-															],
-															"type": {
-																"type": "reflection",
-																"declaration": {
-																	"id": 270,
-																	"name": "__type",
-																	"kind": 65536,
-																	"kindString": "Type literal",
-																	"flags": {
-																		"__visited__": true
-																	},
-																	"children": [
-																		{
-																			"id": 271,
-																			"name": "count",
-																			"kind": 32,
-																			"kindString": "Variable",
-																			"flags": {
-																				"__visited__": true
-																			},
-																			"sources": [
-																				{
-																					"fileName": "services/_tenon.ts",
-																					"line": 85,
-																					"character": 9
-																				}
-																			],
-																			"type": {
-																				"type": "intrinsic",
-																				"name": "number"
-																			}
-																		},
-																		{
-																			"id": 272,
-																			"name": "pct",
-																			"kind": 32,
-																			"kindString": "Variable",
-																			"flags": {
-																				"__visited__": true
-																			},
-																			"sources": [
-																				{
-																					"fileName": "services/_tenon.ts",
-																					"line": 86,
-																					"character": 7
-																				}
-																			],
-																			"type": {
-																				"type": "intrinsic",
-																				"name": "number"
-																			}
-																		}
-																	],
-																	"groups": [
-																		{
-																			"title": "Variables",
-																			"kind": 32,
-																			"children": [
-																				271,
-																				272
-																			]
-																		}
-																	],
-																	"sources": [
-																		{
-																			"fileName": "services/_tenon.ts",
-																			"line": 84,
-																			"character": 5
-																		}
-																	]
-																}
-															}
-														},
-														{
-															"id": 273,
-															"name": "AA",
-															"kind": 32,
-															"kindString": "Variable",
-															"flags": {
-																"__visited__": true
-															},
-															"sources": [
-																{
-																	"fileName": "services/_tenon.ts",
-																	"line": 88,
-																	"character": 5
 																}
 															],
 															"type": {
@@ -4033,7 +4058,7 @@
 																			"sources": [
 																				{
 																					"fileName": "services/_tenon.ts",
-																					"line": 89,
+																					"line": 85,
 																					"character": 9
 																				}
 																			],
@@ -4053,7 +4078,7 @@
 																			"sources": [
 																				{
 																					"fileName": "services/_tenon.ts",
-																					"line": 90,
+																					"line": 86,
 																					"character": 7
 																				}
 																			],
@@ -4076,8 +4101,8 @@
 																	"sources": [
 																		{
 																			"fileName": "services/_tenon.ts",
-																			"line": 88,
-																			"character": 6
+																			"line": 84,
+																			"character": 5
 																		}
 																	]
 																}
@@ -4085,7 +4110,7 @@
 														},
 														{
 															"id": 277,
-															"name": "AAA",
+															"name": "AA",
 															"kind": 32,
 															"kindString": "Variable",
 															"flags": {
@@ -4094,8 +4119,8 @@
 															"sources": [
 																{
 																	"fileName": "services/_tenon.ts",
-																	"line": 92,
-																	"character": 6
+																	"line": 88,
+																	"character": 5
 																}
 															],
 															"type": {
@@ -4120,7 +4145,7 @@
 																			"sources": [
 																				{
 																					"fileName": "services/_tenon.ts",
-																					"line": 93,
+																					"line": 89,
 																					"character": 9
 																				}
 																			],
@@ -4131,6 +4156,93 @@
 																		},
 																		{
 																			"id": 280,
+																			"name": "pct",
+																			"kind": 32,
+																			"kindString": "Variable",
+																			"flags": {
+																				"__visited__": true
+																			},
+																			"sources": [
+																				{
+																					"fileName": "services/_tenon.ts",
+																					"line": 90,
+																					"character": 7
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "number"
+																			}
+																		}
+																	],
+																	"groups": [
+																		{
+																			"title": "Variables",
+																			"kind": 32,
+																			"children": [
+																				279,
+																				280
+																			]
+																		}
+																	],
+																	"sources": [
+																		{
+																			"fileName": "services/_tenon.ts",
+																			"line": 88,
+																			"character": 6
+																		}
+																	]
+																}
+															}
+														},
+														{
+															"id": 281,
+															"name": "AAA",
+															"kind": 32,
+															"kindString": "Variable",
+															"flags": {
+																"__visited__": true
+															},
+															"sources": [
+																{
+																	"fileName": "services/_tenon.ts",
+																	"line": 92,
+																	"character": 6
+																}
+															],
+															"type": {
+																"type": "reflection",
+																"declaration": {
+																	"id": 282,
+																	"name": "__type",
+																	"kind": 65536,
+																	"kindString": "Type literal",
+																	"flags": {
+																		"__visited__": true
+																	},
+																	"children": [
+																		{
+																			"id": 283,
+																			"name": "count",
+																			"kind": 32,
+																			"kindString": "Variable",
+																			"flags": {
+																				"__visited__": true
+																			},
+																			"sources": [
+																				{
+																					"fileName": "services/_tenon.ts",
+																					"line": 93,
+																					"character": 9
+																				}
+																			],
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "number"
+																			}
+																		},
+																		{
+																			"id": 284,
 																			"name": "pct",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -4155,8 +4267,8 @@
 																			"title": "Variables",
 																			"kind": 32,
 																			"children": [
-																				279,
-																				280
+																				283,
+																				284
 																			]
 																		}
 																	],
@@ -4176,9 +4288,9 @@
 															"title": "Variables",
 															"kind": 32,
 															"children": [
-																269,
 																273,
-																277
+																277,
+																281
 															]
 														}
 													],
@@ -4193,7 +4305,7 @@
 											}
 										},
 										{
-											"id": 281,
+											"id": 285,
 											"name": "tests",
 											"kind": 32,
 											"kindString": "Variable",
@@ -4210,7 +4322,7 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 282,
+													"id": 286,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
@@ -4219,7 +4331,7 @@
 													},
 													"children": [
 														{
-															"id": 283,
+															"id": 287,
 															"name": "failing",
 															"kind": 32,
 															"kindString": "Variable",
@@ -4239,7 +4351,7 @@
 															}
 														},
 														{
-															"id": 284,
+															"id": 288,
 															"name": "passing",
 															"kind": 32,
 															"kindString": "Variable",
@@ -4259,7 +4371,7 @@
 															}
 														},
 														{
-															"id": 285,
+															"id": 289,
 															"name": "total",
 															"kind": 32,
 															"kindString": "Variable",
@@ -4284,9 +4396,9 @@
 															"title": "Variables",
 															"kind": 32,
 															"children": [
-																283,
-																284,
-																285
+																287,
+																288,
+																289
 															]
 														}
 													],
@@ -4306,10 +4418,10 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												257,
-												262,
-												267,
-												281
+												261,
+												266,
+												271,
+												285
 											]
 										}
 									],
@@ -4324,7 +4436,7 @@
 							}
 						},
 						{
-							"id": 286,
+							"id": 290,
 							"name": "sourceHash",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4345,7 +4457,7 @@
 							}
 						},
 						{
-							"id": 287,
+							"id": 291,
 							"name": "status",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4366,7 +4478,7 @@
 							}
 						},
 						{
-							"id": 288,
+							"id": 292,
 							"name": "urlHttpCode",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4392,21 +4504,21 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								193,
-								289,
+								197,
 								293,
-								194,
-								195,
-								201,
-								294,
-								202,
-								222,
-								223,
-								224,
-								255,
-								286,
-								287,
-								288
+								297,
+								198,
+								199,
+								205,
+								298,
+								206,
+								226,
+								227,
+								228,
+								259,
+								290,
+								291,
+								292
 							]
 						}
 					],
@@ -4419,7 +4531,7 @@
 					]
 				},
 				{
-					"id": 298,
+					"id": 302,
 					"name": "fileExists",
 					"kind": 64,
 					"kindString": "Function",
@@ -4429,7 +4541,7 @@
 					},
 					"signatures": [
 						{
-							"id": 299,
+							"id": 303,
 							"name": "fileExists",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4438,7 +4550,7 @@
 							},
 							"parameters": [
 								{
-									"id": 300,
+									"id": 304,
 									"name": "filename",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4466,7 +4578,7 @@
 					]
 				},
 				{
-					"id": 295,
+					"id": 299,
 					"name": "toA11yResults",
 					"kind": 64,
 					"kindString": "Function",
@@ -4476,7 +4588,7 @@
 					},
 					"signatures": [
 						{
-							"id": 296,
+							"id": 300,
 							"name": "toA11yResults",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -4485,7 +4597,7 @@
 							},
 							"parameters": [
 								{
-									"id": 297,
+									"id": 301,
 									"name": "tenonResults",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4495,7 +4607,7 @@
 									"type": {
 										"type": "reference",
 										"name": "TenonResults",
-										"id": 192
+										"id": 196
 									}
 								}
 							],
@@ -4520,15 +4632,15 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						192
+						196
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						298,
-						295
+						302,
+						299
 					]
 				}
 			],
@@ -4541,7 +4653,7 @@
 			]
 		},
 		{
-			"id": 95,
+			"id": 99,
 			"name": "\"services/axe\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4552,7 +4664,7 @@
 			"originalName": "src/services/axe.ts",
 			"children": [
 				{
-					"id": 157,
+					"id": 161,
 					"name": "AxeConfig",
 					"kind": 256,
 					"kindString": "Interface",
@@ -4561,7 +4673,7 @@
 					},
 					"children": [
 						{
-							"id": 158,
+							"id": 162,
 							"name": "branding",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4586,7 +4698,7 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 159,
+											"id": 163,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -4595,7 +4707,7 @@
 											},
 											"children": [
 												{
-													"id": 161,
+													"id": 165,
 													"name": "application",
 													"kind": 32,
 													"kindString": "Variable",
@@ -4625,7 +4737,7 @@
 													}
 												},
 												{
-													"id": 160,
+													"id": 164,
 													"name": "brand",
 													"kind": 32,
 													"kindString": "Variable",
@@ -4660,8 +4772,8 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														161,
-														160
+														165,
+														164
 													]
 												}
 											]
@@ -4671,7 +4783,7 @@
 							}
 						},
 						{
-							"id": 163,
+							"id": 167,
 							"name": "checks",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4691,7 +4803,7 @@
 								"elementType": {
 									"type": "reflection",
 									"declaration": {
-										"id": 164,
+										"id": 168,
 										"name": "__type",
 										"kind": 65536,
 										"kindString": "Type literal",
@@ -4700,7 +4812,7 @@
 										},
 										"children": [
 											{
-												"id": 167,
+												"id": 171,
 												"name": "after",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4730,7 +4842,7 @@
 												}
 											},
 											{
-												"id": 170,
+												"id": 174,
 												"name": "enabled",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4764,7 +4876,7 @@
 												}
 											},
 											{
-												"id": 166,
+												"id": 170,
 												"name": "evaluate",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4784,7 +4896,7 @@
 												}
 											},
 											{
-												"id": 165,
+												"id": 169,
 												"name": "id",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4804,7 +4916,7 @@
 												}
 											},
 											{
-												"id": 169,
+												"id": 173,
 												"name": "matches",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4834,7 +4946,7 @@
 												}
 											},
 											{
-												"id": 168,
+												"id": 172,
 												"name": "options",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4860,12 +4972,12 @@
 												"title": "Variables",
 												"kind": 32,
 												"children": [
-													167,
+													171,
+													174,
 													170,
-													166,
-													165,
 													169,
-													168
+													173,
+													172
 												]
 											}
 										],
@@ -4881,7 +4993,7 @@
 							}
 						},
 						{
-							"id": 162,
+							"id": 166,
 							"name": "reporter",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4911,7 +5023,7 @@
 							}
 						},
 						{
-							"id": 171,
+							"id": 175,
 							"name": "rules",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4931,7 +5043,7 @@
 								"elementType": {
 									"type": "reflection",
 									"declaration": {
-										"id": 172,
+										"id": 176,
 										"name": "__type",
 										"kind": 65536,
 										"kindString": "Type literal",
@@ -4940,7 +5052,7 @@
 										},
 										"children": [
 											{
-												"id": 179,
+												"id": 183,
 												"name": "all",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4964,7 +5076,7 @@
 												}
 											},
 											{
-												"id": 178,
+												"id": 182,
 												"name": "any",
 												"kind": 32,
 												"kindString": "Variable",
@@ -4988,7 +5100,7 @@
 												}
 											},
 											{
-												"id": 176,
+												"id": 180,
 												"name": "enabled",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5022,7 +5134,7 @@
 												}
 											},
 											{
-												"id": 175,
+												"id": 179,
 												"name": "excludeHidden",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5056,7 +5168,7 @@
 												}
 											},
 											{
-												"id": 173,
+												"id": 177,
 												"name": "id",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5076,7 +5188,7 @@
 												}
 											},
 											{
-												"id": 182,
+												"id": 186,
 												"name": "matches",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5106,7 +5218,7 @@
 												}
 											},
 											{
-												"id": 180,
+												"id": 184,
 												"name": "none",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5130,7 +5242,7 @@
 												}
 											},
 											{
-												"id": 177,
+												"id": 181,
 												"name": "pageLevel",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5164,7 +5276,7 @@
 												}
 											},
 											{
-												"id": 174,
+												"id": 178,
 												"name": "selector",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5194,7 +5306,7 @@
 												}
 											},
 											{
-												"id": 181,
+												"id": 185,
 												"name": "tags",
 												"kind": 32,
 												"kindString": "Variable",
@@ -5223,16 +5335,16 @@
 												"title": "Variables",
 												"kind": 32,
 												"children": [
-													179,
-													178,
-													176,
-													175,
-													173,
+													183,
 													182,
 													180,
+													179,
 													177,
-													174,
-													181
+													186,
+													184,
+													181,
+													178,
+													185
 												]
 											}
 										],
@@ -5253,10 +5365,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								158,
-								163,
 								162,
-								171
+								167,
+								166,
+								175
 							]
 						}
 					],
@@ -5269,7 +5381,7 @@
 					]
 				},
 				{
-					"id": 125,
+					"id": 129,
 					"name": "AxeRunTestOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -5279,7 +5391,7 @@
 					},
 					"children": [
 						{
-							"id": 129,
+							"id": 133,
 							"name": "config",
 							"kind": 1024,
 							"kindString": "Property",
@@ -5305,7 +5417,7 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 130,
+											"id": 134,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -5314,7 +5426,7 @@
 											},
 											"children": [
 												{
-													"id": 131,
+													"id": 135,
 													"name": "branding",
 													"kind": 32,
 													"kindString": "Variable",
@@ -5339,7 +5451,7 @@
 															{
 																"type": "reflection",
 																"declaration": {
-																	"id": 132,
+																	"id": 136,
 																	"name": "__type",
 																	"kind": 65536,
 																	"kindString": "Type literal",
@@ -5348,7 +5460,7 @@
 																	},
 																	"children": [
 																		{
-																			"id": 134,
+																			"id": 138,
 																			"name": "application",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -5378,7 +5490,7 @@
 																			}
 																		},
 																		{
-																			"id": 133,
+																			"id": 137,
 																			"name": "brand",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -5413,8 +5525,8 @@
 																			"title": "Variables",
 																			"kind": 32,
 																			"children": [
-																				134,
-																				133
+																				138,
+																				137
 																			]
 																		}
 																	]
@@ -5424,7 +5536,7 @@
 													}
 												},
 												{
-													"id": 136,
+													"id": 140,
 													"name": "checks",
 													"kind": 32,
 													"kindString": "Variable",
@@ -5444,7 +5556,7 @@
 														"elementType": {
 															"type": "reflection",
 															"declaration": {
-																"id": 137,
+																"id": 141,
 																"name": "__type",
 																"kind": 65536,
 																"kindString": "Type literal",
@@ -5453,7 +5565,7 @@
 																},
 																"children": [
 																	{
-																		"id": 140,
+																		"id": 144,
 																		"name": "after",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5474,7 +5586,7 @@
 																		}
 																	},
 																	{
-																		"id": 143,
+																		"id": 147,
 																		"name": "enabled",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5508,7 +5620,7 @@
 																		}
 																	},
 																	{
-																		"id": 139,
+																		"id": 143,
 																		"name": "evaluate",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5528,7 +5640,7 @@
 																		}
 																	},
 																	{
-																		"id": 138,
+																		"id": 142,
 																		"name": "id",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5548,7 +5660,7 @@
 																		}
 																	},
 																	{
-																		"id": 142,
+																		"id": 146,
 																		"name": "matches",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5578,7 +5690,7 @@
 																		}
 																	},
 																	{
-																		"id": 141,
+																		"id": 145,
 																		"name": "options",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5604,12 +5716,12 @@
 																		"title": "Variables",
 																		"kind": 32,
 																		"children": [
-																			140,
+																			144,
+																			147,
 																			143,
-																			139,
-																			138,
 																			142,
-																			141
+																			146,
+																			145
 																		]
 																	}
 																],
@@ -5625,7 +5737,7 @@
 													}
 												},
 												{
-													"id": 135,
+													"id": 139,
 													"name": "reporter",
 													"kind": 32,
 													"kindString": "Variable",
@@ -5655,7 +5767,7 @@
 													}
 												},
 												{
-													"id": 144,
+													"id": 148,
 													"name": "rules",
 													"kind": 32,
 													"kindString": "Variable",
@@ -5675,7 +5787,7 @@
 														"elementType": {
 															"type": "reflection",
 															"declaration": {
-																"id": 145,
+																"id": 149,
 																"name": "__type",
 																"kind": 65536,
 																"kindString": "Type literal",
@@ -5684,7 +5796,7 @@
 																},
 																"children": [
 																	{
-																		"id": 152,
+																		"id": 156,
 																		"name": "all",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5708,7 +5820,7 @@
 																		}
 																	},
 																	{
-																		"id": 151,
+																		"id": 155,
 																		"name": "any",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5732,7 +5844,7 @@
 																		}
 																	},
 																	{
-																		"id": 149,
+																		"id": 153,
 																		"name": "enabled",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5766,7 +5878,7 @@
 																		}
 																	},
 																	{
-																		"id": 148,
+																		"id": 152,
 																		"name": "excludeHidden",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5800,7 +5912,7 @@
 																		}
 																	},
 																	{
-																		"id": 146,
+																		"id": 150,
 																		"name": "id",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5820,7 +5932,7 @@
 																		}
 																	},
 																	{
-																		"id": 155,
+																		"id": 159,
 																		"name": "matches",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5850,7 +5962,7 @@
 																		}
 																	},
 																	{
-																		"id": 153,
+																		"id": 157,
 																		"name": "none",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5874,7 +5986,7 @@
 																		}
 																	},
 																	{
-																		"id": 150,
+																		"id": 154,
 																		"name": "pageLevel",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5908,7 +6020,7 @@
 																		}
 																	},
 																	{
-																		"id": 147,
+																		"id": 151,
 																		"name": "selector",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5938,7 +6050,7 @@
 																		}
 																	},
 																	{
-																		"id": 154,
+																		"id": 158,
 																		"name": "tags",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -5967,16 +6079,16 @@
 																		"title": "Variables",
 																		"kind": 32,
 																		"children": [
-																			152,
-																			151,
-																			149,
-																			148,
-																			146,
+																			156,
 																			155,
 																			153,
+																			152,
 																			150,
-																			147,
-																			154
+																			159,
+																			157,
+																			154,
+																			151,
+																			158
 																		]
 																	}
 																],
@@ -5997,10 +6109,10 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														131,
-														136,
 														135,
-														144
+														140,
+														139,
+														148
 													]
 												}
 											]
@@ -6011,11 +6123,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AxeTestOptions.config",
-								"id": 97
+								"id": 101
 							}
 						},
 						{
-							"id": 156,
+							"id": 160,
 							"name": "context",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6050,11 +6162,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "AxeTestOptions.context",
-								"id": 124
+								"id": 128
 							}
 						},
 						{
-							"id": 126,
+							"id": 130,
 							"name": "remote",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6084,7 +6196,7 @@
 							}
 						},
 						{
-							"id": 127,
+							"id": 131,
 							"name": "source",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6108,7 +6220,7 @@
 							}
 						},
 						{
-							"id": 128,
+							"id": 132,
 							"name": "waitFor",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6147,11 +6259,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								129,
-								156,
-								126,
-								127,
-								128
+								133,
+								160,
+								130,
+								131,
+								132
 							]
 						}
 					],
@@ -6166,12 +6278,12 @@
 						{
 							"type": "reference",
 							"name": "AxeTestOptions",
-							"id": 96
+							"id": 100
 						}
 					]
 				},
 				{
-					"id": 96,
+					"id": 100,
 					"name": "AxeTestOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -6181,7 +6293,7 @@
 					},
 					"children": [
 						{
-							"id": 97,
+							"id": 101,
 							"name": "config",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6207,7 +6319,7 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 98,
+											"id": 102,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -6216,7 +6328,7 @@
 											},
 											"children": [
 												{
-													"id": 99,
+													"id": 103,
 													"name": "branding",
 													"kind": 32,
 													"kindString": "Variable",
@@ -6241,7 +6353,7 @@
 															{
 																"type": "reflection",
 																"declaration": {
-																	"id": 100,
+																	"id": 104,
 																	"name": "__type",
 																	"kind": 65536,
 																	"kindString": "Type literal",
@@ -6250,7 +6362,7 @@
 																	},
 																	"children": [
 																		{
-																			"id": 102,
+																			"id": 106,
 																			"name": "application",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -6280,7 +6392,7 @@
 																			}
 																		},
 																		{
-																			"id": 101,
+																			"id": 105,
 																			"name": "brand",
 																			"kind": 32,
 																			"kindString": "Variable",
@@ -6315,8 +6427,8 @@
 																			"title": "Variables",
 																			"kind": 32,
 																			"children": [
-																				102,
-																				101
+																				106,
+																				105
 																			]
 																		}
 																	]
@@ -6326,7 +6438,7 @@
 													}
 												},
 												{
-													"id": 104,
+													"id": 108,
 													"name": "checks",
 													"kind": 32,
 													"kindString": "Variable",
@@ -6346,7 +6458,7 @@
 														"elementType": {
 															"type": "reflection",
 															"declaration": {
-																"id": 105,
+																"id": 109,
 																"name": "__type",
 																"kind": 65536,
 																"kindString": "Type literal",
@@ -6355,7 +6467,7 @@
 																},
 																"children": [
 																	{
-																		"id": 108,
+																		"id": 112,
 																		"name": "after",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6376,7 +6488,7 @@
 																		}
 																	},
 																	{
-																		"id": 111,
+																		"id": 115,
 																		"name": "enabled",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6410,7 +6522,7 @@
 																		}
 																	},
 																	{
-																		"id": 107,
+																		"id": 111,
 																		"name": "evaluate",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6430,7 +6542,7 @@
 																		}
 																	},
 																	{
-																		"id": 106,
+																		"id": 110,
 																		"name": "id",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6450,7 +6562,7 @@
 																		}
 																	},
 																	{
-																		"id": 110,
+																		"id": 114,
 																		"name": "matches",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6480,7 +6592,7 @@
 																		}
 																	},
 																	{
-																		"id": 109,
+																		"id": 113,
 																		"name": "options",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6506,12 +6618,12 @@
 																		"title": "Variables",
 																		"kind": 32,
 																		"children": [
-																			108,
+																			112,
+																			115,
 																			111,
-																			107,
-																			106,
 																			110,
-																			109
+																			114,
+																			113
 																		]
 																	}
 																],
@@ -6527,7 +6639,7 @@
 													}
 												},
 												{
-													"id": 103,
+													"id": 107,
 													"name": "reporter",
 													"kind": 32,
 													"kindString": "Variable",
@@ -6557,7 +6669,7 @@
 													}
 												},
 												{
-													"id": 112,
+													"id": 116,
 													"name": "rules",
 													"kind": 32,
 													"kindString": "Variable",
@@ -6577,7 +6689,7 @@
 														"elementType": {
 															"type": "reflection",
 															"declaration": {
-																"id": 113,
+																"id": 117,
 																"name": "__type",
 																"kind": 65536,
 																"kindString": "Type literal",
@@ -6586,7 +6698,7 @@
 																},
 																"children": [
 																	{
-																		"id": 120,
+																		"id": 124,
 																		"name": "all",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6610,7 +6722,7 @@
 																		}
 																	},
 																	{
-																		"id": 119,
+																		"id": 123,
 																		"name": "any",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6634,7 +6746,7 @@
 																		}
 																	},
 																	{
-																		"id": 117,
+																		"id": 121,
 																		"name": "enabled",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6668,7 +6780,7 @@
 																		}
 																	},
 																	{
-																		"id": 116,
+																		"id": 120,
 																		"name": "excludeHidden",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6702,7 +6814,7 @@
 																		}
 																	},
 																	{
-																		"id": 114,
+																		"id": 118,
 																		"name": "id",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6722,7 +6834,7 @@
 																		}
 																	},
 																	{
-																		"id": 123,
+																		"id": 127,
 																		"name": "matches",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6752,7 +6864,7 @@
 																		}
 																	},
 																	{
-																		"id": 121,
+																		"id": 125,
 																		"name": "none",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6776,7 +6888,7 @@
 																		}
 																	},
 																	{
-																		"id": 118,
+																		"id": 122,
 																		"name": "pageLevel",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6810,7 +6922,7 @@
 																		}
 																	},
 																	{
-																		"id": 115,
+																		"id": 119,
 																		"name": "selector",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6840,7 +6952,7 @@
 																		}
 																	},
 																	{
-																		"id": 122,
+																		"id": 126,
 																		"name": "tags",
 																		"kind": 32,
 																		"kindString": "Variable",
@@ -6869,16 +6981,16 @@
 																		"title": "Variables",
 																		"kind": 32,
 																		"children": [
-																			120,
-																			119,
-																			117,
-																			116,
-																			114,
+																			124,
 																			123,
 																			121,
+																			120,
 																			118,
-																			115,
-																			122
+																			127,
+																			125,
+																			122,
+																			119,
+																			126
 																		]
 																	}
 																],
@@ -6899,10 +7011,10 @@
 													"title": "Variables",
 													"kind": 32,
 													"children": [
-														99,
-														104,
 														103,
-														112
+														108,
+														107,
+														116
 													]
 												}
 											]
@@ -6912,7 +7024,7 @@
 							}
 						},
 						{
-							"id": 124,
+							"id": 128,
 							"name": "context",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6951,8 +7063,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								97,
-								124
+								101,
+								128
 							]
 						}
 					],
@@ -6967,12 +7079,12 @@
 						{
 							"type": "reference",
 							"name": "AxeRunTestOptions",
-							"id": 125
+							"id": 129
 						}
 					]
 				},
 				{
-					"id": 188,
+					"id": 192,
 					"name": "check",
 					"kind": 64,
 					"kindString": "Function",
@@ -6982,7 +7094,7 @@
 					},
 					"signatures": [
 						{
-							"id": 189,
+							"id": 193,
 							"name": "check",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6991,7 +7103,7 @@
 							},
 							"parameters": [
 								{
-									"id": 190,
+									"id": 194,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7002,7 +7114,7 @@
 									"type": {
 										"type": "reference",
 										"name": "AxeRunTestOptions",
-										"id": 125
+										"id": 129
 									}
 								}
 							],
@@ -7047,7 +7159,7 @@
 					]
 				},
 				{
-					"id": 183,
+					"id": 187,
 					"name": "createChecker",
 					"kind": 64,
 					"kindString": "Function",
@@ -7057,7 +7169,7 @@
 					},
 					"signatures": [
 						{
-							"id": 184,
+							"id": 188,
 							"name": "createChecker",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7066,7 +7178,7 @@
 							},
 							"parameters": [
 								{
-									"id": 185,
+									"id": 189,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7077,14 +7189,14 @@
 									"type": {
 										"type": "reference",
 										"name": "AxeTestOptions",
-										"id": 96
+										"id": 100
 									}
 								}
 							],
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 186,
+									"id": 190,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -7093,7 +7205,7 @@
 									},
 									"signatures": [
 										{
-											"id": 187,
+											"id": 191,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
@@ -7138,17 +7250,17 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						157,
-						125,
-						96
+						161,
+						129,
+						100
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						188,
-						183
+						192,
+						187
 					]
 				}
 			],
@@ -7161,7 +7273,7 @@
 			]
 		},
 		{
-			"id": 301,
+			"id": 305,
 			"name": "\"services/tenon\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -7172,7 +7284,7 @@
 			"originalName": "src/services/tenon.ts",
 			"children": [
 				{
-					"id": 302,
+					"id": 306,
 					"name": "TenonConfig",
 					"kind": 256,
 					"kindString": "Interface",
@@ -7182,7 +7294,7 @@
 					},
 					"children": [
 						{
-							"id": 303,
+							"id": 307,
 							"name": "certainty",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7229,7 +7341,7 @@
 							}
 						},
 						{
-							"id": 305,
+							"id": 309,
 							"name": "docID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7260,7 +7372,7 @@
 							}
 						},
 						{
-							"id": 308,
+							"id": 312,
 							"name": "fragment",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7291,7 +7403,7 @@
 							}
 						},
 						{
-							"id": 307,
+							"id": 311,
 							"name": "level",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7326,7 +7438,7 @@
 							}
 						},
 						{
-							"id": 306,
+							"id": 310,
 							"name": "priority",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7373,7 +7485,7 @@
 							}
 						},
 						{
-							"id": 304,
+							"id": 308,
 							"name": "projectID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7404,7 +7516,7 @@
 							}
 						},
 						{
-							"id": 309,
+							"id": 313,
 							"name": "store",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7435,7 +7547,7 @@
 							}
 						},
 						{
-							"id": 310,
+							"id": 314,
 							"name": "uaString",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7466,7 +7578,7 @@
 							}
 						},
 						{
-							"id": 311,
+							"id": 315,
 							"name": "viewPortHeight",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7497,7 +7609,7 @@
 							}
 						},
 						{
-							"id": 312,
+							"id": 316,
 							"name": "viewPortWidth",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7533,16 +7645,16 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								303,
-								305,
-								308,
 								307,
-								306,
-								304,
 								309,
-								310,
+								312,
 								311,
-								312
+								310,
+								308,
+								313,
+								314,
+								315,
+								316
 							]
 						}
 					],
@@ -7557,12 +7669,12 @@
 						{
 							"type": "reference",
 							"name": "TenonQuery",
-							"id": 318
+							"id": 322
 						}
 					]
 				},
 				{
-					"id": 318,
+					"id": 322,
 					"name": "TenonQuery",
 					"kind": 256,
 					"kindString": "Interface",
@@ -7571,7 +7683,7 @@
 					},
 					"children": [
 						{
-							"id": 322,
+							"id": 326,
 							"name": "certainty",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7618,11 +7730,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.certainty",
-								"id": 303
+								"id": 307
 							}
 						},
 						{
-							"id": 324,
+							"id": 328,
 							"name": "docID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7653,11 +7765,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.docID",
-								"id": 305
+								"id": 309
 							}
 						},
 						{
-							"id": 327,
+							"id": 331,
 							"name": "fragment",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7688,11 +7800,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.fragment",
-								"id": 308
+								"id": 312
 							}
 						},
 						{
-							"id": 319,
+							"id": 323,
 							"name": "key",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7712,7 +7824,7 @@
 							}
 						},
 						{
-							"id": 326,
+							"id": 330,
 							"name": "level",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7747,11 +7859,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.level",
-								"id": 307
+								"id": 311
 							}
 						},
 						{
-							"id": 325,
+							"id": 329,
 							"name": "priority",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7798,11 +7910,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.priority",
-								"id": 306
+								"id": 310
 							}
 						},
 						{
-							"id": 323,
+							"id": 327,
 							"name": "projectID",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7833,11 +7945,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.projectID",
-								"id": 304
+								"id": 308
 							}
 						},
 						{
-							"id": 320,
+							"id": 324,
 							"name": "src",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7867,7 +7979,7 @@
 							}
 						},
 						{
-							"id": 328,
+							"id": 332,
 							"name": "store",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7898,11 +8010,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.store",
-								"id": 309
+								"id": 313
 							}
 						},
 						{
-							"id": 329,
+							"id": 333,
 							"name": "uaString",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7933,11 +8045,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.uaString",
-								"id": 310
+								"id": 314
 							}
 						},
 						{
-							"id": 321,
+							"id": 325,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7967,7 +8079,7 @@
 							}
 						},
 						{
-							"id": 330,
+							"id": 334,
 							"name": "viewPortHeight",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7998,11 +8110,11 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.viewPortHeight",
-								"id": 311
+								"id": 315
 							}
 						},
 						{
-							"id": 331,
+							"id": 335,
 							"name": "viewPortWidth",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8033,7 +8145,7 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "TenonConfig.viewPortWidth",
-								"id": 312
+								"id": 316
 							}
 						}
 					],
@@ -8042,19 +8154,19 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								322,
-								324,
-								327,
-								319,
 								326,
-								325,
-								323,
-								320,
 								328,
-								329,
-								321,
+								331,
+								323,
 								330,
-								331
+								329,
+								327,
+								324,
+								332,
+								333,
+								325,
+								334,
+								335
 							]
 						}
 					],
@@ -8069,12 +8181,12 @@
 						{
 							"type": "reference",
 							"name": "TenonConfig",
-							"id": 302
+							"id": 306
 						}
 					]
 				},
 				{
-					"id": 313,
+					"id": 317,
 					"name": "TenonTestOptions",
 					"kind": 256,
 					"kindString": "Interface",
@@ -8084,7 +8196,7 @@
 					},
 					"children": [
 						{
-							"id": 315,
+							"id": 319,
 							"name": "apiKey",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8118,7 +8230,7 @@
 							}
 						},
 						{
-							"id": 317,
+							"id": 321,
 							"name": "config",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8140,11 +8252,11 @@
 							"type": {
 								"type": "reference",
 								"name": "TenonConfig",
-								"id": 302
+								"id": 306
 							}
 						},
 						{
-							"id": 314,
+							"id": 318,
 							"name": "source",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8168,7 +8280,7 @@
 							}
 						},
 						{
-							"id": 316,
+							"id": 320,
 							"name": "waitFor",
 							"kind": 1024,
 							"kindString": "Property",
@@ -8207,10 +8319,10 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								315,
-								317,
-								314,
-								316
+								319,
+								321,
+								318,
+								320
 							]
 						}
 					],
@@ -8223,7 +8335,7 @@
 					]
 				},
 				{
-					"id": 332,
+					"id": 336,
 					"name": "check",
 					"kind": 64,
 					"kindString": "Function",
@@ -8233,7 +8345,7 @@
 					},
 					"signatures": [
 						{
-							"id": 333,
+							"id": 337,
 							"name": "check",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -8242,7 +8354,7 @@
 							},
 							"parameters": [
 								{
-									"id": 334,
+									"id": 338,
 									"name": "options",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8252,7 +8364,7 @@
 									"type": {
 										"type": "reference",
 										"name": "TenonTestOptions",
-										"id": 313
+										"id": 317
 									}
 								}
 							],
@@ -8283,16 +8395,16 @@
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						302,
-						318,
-						313
+						306,
+						322,
+						317
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						332
+						336
 					]
 				}
 			],
@@ -8312,11 +8424,11 @@
 			"children": [
 				28,
 				1,
-				335,
-				62,
-				191,
-				95,
-				301
+				339,
+				66,
+				195,
+				99,
+				305
 			]
 		}
 	]
